@@ -2,34 +2,33 @@ import {StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
   root: {
-    alignContent: 'center',
-    flexDirection: 'row',
     borderWidth: 1,
     borderColor: '#d1d1d1',
     borderRadius: 10,
     backgroundColor: '#fff',
     marginVertical: 5,
   },
+  row: {
+    flexDirection: 'row',
+  },
   image: {
     flex: 2,
-    height: 130,
+    height: 150,
     resizeMode: 'contain',
-    borderTopLeftRadius: 10,
-    borderBottomLeftRadius: 10,
   },
   rightContainer: {
     padding: 10,
-    // flex: 3,
+    flex: 3,
   },
   title: {
-    fontSize: 15,
+    fontSize: 18,
   },
   price: {
-    fontSize: 15,
+    fontSize: 18,
     fontWeight: 'bold',
   },
   oldPrice: {
-    fontSize: 15,
+    fontSize: 12,
     fontWeight: 'normal',
     textDecorationLine: 'line-through',
   },
@@ -40,6 +39,9 @@ const styles = StyleSheet.create({
   },
   star: {
     margin: 2,
+  },
+  quantityContainer: {
+    margin: 5,
   },
 });
 

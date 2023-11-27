@@ -1,9 +1,11 @@
+
+import React, { useEffect, useState } from 'react';
+import { Feather } from '@expo/vector-icons';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
-import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
+// import { LightTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
 import { useFonts } from 'expo-font';
 import { SplashScreen, Stack } from 'expo-router';
-import { useEffect } from 'react';
-import { useColorScheme } from 'react-native';
+import { SafeAreaView, TextInput, View, useColorScheme } from 'react-native';
 
 export {
   // Catch any errors thrown by the Layout component.
@@ -12,13 +14,45 @@ export {
 
 export const unstable_settings = {
   // Ensure that reloading on `/modal` keeps a back button present.
-  initialRouteName: '(tabs)',
+  initialRouteName: '(tabs)/home',
 };
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
 
+interface HeaderComponentProps {
+  searchValue: string;
+  setSearchValue: React.Dispatch<React.SetStateAction<string>>;
+}
+
+const HeaderComponent = ({
+  searchValue,
+  setSearchValue,
+}: HeaderComponentProps) => {
+  return (
+    <SafeAreaView style={{backgroundColor: '#22e3dd'}}>
+      <View
+        style={{
+          margin: 10,
+          padding: 5,
+          backgroundColor: 'white',
+          flexDirection: 'row',
+          alignItems: 'center',
+        }}>
+        <Feather name="search" size={20} />
+        <TextInput
+          style={{height: 40, marginLeft: 10}}
+          placeholder="Search..."
+          value={searchValue}
+          onChangeText={setSearchValue}
+        />
+      </View>
+    </SafeAreaView>
+  );
+};
+
 export default function RootLayout() {
+
   const [loaded, error] = useFonts({
     SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
     ...FontAwesome.font,
@@ -43,14 +77,25 @@ export default function RootLayout() {
 }
 
 function RootLayoutNav() {
-  const colorScheme = useColorScheme();
+  const [searchValue, setSearchValue] = useState('');
+
+  // const colorScheme = useColorScheme();
+
 
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="modal" options={{ presentation: 'modal' }} />
+    // <ThemeProvider value={colorScheme === 'light' ? LightTheme : DefaultTheme}>
+    <Stack screenOptions={{
+      header: () => (
+        <HeaderComponent
+          searchValue={searchValue}
+          setSearchValue={setSearchValue}
+        />
+      ),
+    }}>
+        <Stack.Screen name="(tabs)/home" options={{ headerShown: false }} />
+        {/* <Stack.Screen name="modal" options={{ presentation: 'modal' }} /> */}
+        <Stack.Screen name="/ProductDetails" />
       </Stack>
-    </ThemeProvider>
+    // </ThemeProvider>
   );
 }

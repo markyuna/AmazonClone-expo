@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native';
 import ProductScreen from '../../screens/ProductScreen';
 import { Text, View } from '../../components/Themed';
 
-export default function TabTwoScreen() {
+export default function TabProfileScreen() {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Tab Two</Text>
