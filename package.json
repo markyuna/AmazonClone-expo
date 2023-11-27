@@ -10,10 +10,19 @@
     "test": "jest --watchAll"
   },
   "jest": {
-    "preset": "jest-expo"
+    "preset": "jest-expo",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ]
   },
   "dependencies": {
     "@expo/vector-icons": "^13.0.0",
+    "@react-native-picker/picker": "2.4.10",
     "@react-navigation/native": "^6.0.2",
     "expo": "~49.0.18",
     "expo-font": "~11.4.0",
