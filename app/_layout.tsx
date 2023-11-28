@@ -55,6 +55,7 @@ function RootLayoutNav() {
         }}>
         
         <Stack.Screen name="(tabs)" options={{ title: 'Home' }} />
+        <Stack.Screen name="screens/AddressScreen/index" options={{ title: 'AddressScreen' }} />
      
       </Stack>
     // </SafeAreaView>

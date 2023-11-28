@@ -1,6 +1,7 @@
+// app/(tabs)/_layout.tsx
 import * as React from 'react';
 import Entypo from '@expo/vector-icons/Entypo';
-import { Link, Tabs } from 'expo-router';
+import { Link, Tabs, useNavigation } from 'expo-router';
 import { Pressable, useColorScheme } from 'react-native';
 
 import Colors from '../../constants/Colors';
@@ -8,16 +9,14 @@ import Colors from '../../constants/Colors';
 /**
  * You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
  */
-function TabBarIcon(props: Readonly<{
-  name: React.ComponentProps<typeof Entypo>['name'];
-  color: string;
-}>) {
+function TabBarIcon(props: Readonly<{ name: React.ComponentProps<typeof Entypo>['name']; color: string; }>) {
   return <Entypo size={28} style={{ marginBottom: -3 }} {...props} />;
 }
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
-
+  const navigation = useNavigation();
+  
   return (
     <Tabs
       screenOptions={{
@@ -60,7 +59,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="shoopingcart"
         options={{
-          title: 'Shoopin Cart',
+          title: 'Shooping Cart',
           tabBarIcon: ({ color }) => <TabBarIcon name="shopping-cart" color={color} />,
         }}
       />

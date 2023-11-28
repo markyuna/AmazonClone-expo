@@ -1,28 +1,31 @@
-import { Link } from 'expo-router';
+// app/components/ExternalLink.tsx
+import { Link as RouterLink, useNavigation } from 'expo-router';
 import * as WebBrowser from 'expo-web-browser';
-import React from 'react';
+import React, { forwardRef } from 'react';
 import { Platform } from 'react-native';
 
-export function ExternalLink(
-  props: Omit<React.ComponentProps<typeof Link>, 'href'> & { href: string }
-) {
-  return (
-    <Link
-      hrefAttrs={{
-        // On web, launch the link in a new tab.
-        target: '_blank',
-      }}
-      {...props}
-      // @ts-expect-error: External URLs are not typed.
-      href={props.href}
-      onPress={(e) => {
-        if (Platform.OS !== 'web') {
-          // Prevent the default behavior of linking to the default browser on native.
-          e.preventDefault();
-          // Open the link in an in-app browser.
-          WebBrowser.openBrowserAsync(props.href as string);
-        }
-      }}
-    />
-  );
-}
+const ExternalLink = forwardRef(
+  ({ asChild, href, onPress, ...rest }: { asChild?: boolean; href?: string; onPress?: () => void } & React.ComponentProps<typeof RouterLink>, ref) => {
+    const navigation = useNavigation();
+
+    const handleClick = () => {
+      if (asChild && href) {
+        navigation.navigate(href);
+      } else if (onPress) {
+        onPress();
+      }
+    };
+
+    if (Platform.OS === 'web' && href) {
+      return (
+        <RouterLink href={href} rel="noopener noreferrer" target="_blank" {...rest}>
+          {rest.children}
+        </RouterLink>
+      );
+    }
+
+    return <RouterLink {...rest} onPress={handleClick} ref={ref} />;
+  }
+);
+
+export default ExternalLink;
