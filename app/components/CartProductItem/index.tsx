@@ -8,7 +8,7 @@ interface CartProductItemProps {
     cartItem: {
         id: string;
         quantity: number;
-        option: string;
+        option?: string;
         item: {
             id: string;
             title: string;

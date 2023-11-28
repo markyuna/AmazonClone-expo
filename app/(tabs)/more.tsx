@@ -1,20 +1,18 @@
-import { StyleSheet } from 'react-native';
+import React from 'react';
+import {View} from 'react-native';
+// import { Auth } from 'aws-amplify';
+import Button from '../components/Button';
 
-import ShoopingCartScreen from '../../screens/ProductScreen';
-import { Text, View } from '../../components/Themed';
+const MenuScreen = () => {
+  const onLogout = () => {
+    Auth.signOut();
+  };
 
-export default function TabMoreScreen() {
   return (
-    <View style={styles.container}>
-      <ShoopingCartScreen />
+    <View>
+      <Button text="Sign out" onPress={onLogout} />
     </View>
   );
-}
+};
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    // alignItems: 'center',
-    // justifyContent: 'center',
-  },
-});
+export default MenuScreen;

@@ -61,6 +61,7 @@ const AddressScreen = () => {
           <Picker selectedValue={country} onValueChange={setCountry}>
             {countries.map(country => (
               <Picker.Item 
+                key={country.code}
                 value={country.code} 
                 label={country.name} />
             ))}

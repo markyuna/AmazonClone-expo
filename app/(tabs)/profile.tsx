@@ -1,13 +1,11 @@
 import { StyleSheet } from 'react-native';
 
-import ProductScreen from '../../screens/ProductScreen';
-import { Text, View } from '../../components/Themed';
+import ProductScreen from '../screens/ProductScreen';
+import { Text, View } from '../components/Themed';
 
 export default function TabProfileScreen() {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Tab Two</Text>
-      <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
       <ProductScreen />
     </View>
   );
@@ -16,8 +14,7 @@ export default function TabProfileScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    // alignItems: 'center',
-    // justifyContent: 'center',
+    // marginVertical: 50,
   },
   title: {
     fontSize: 20,

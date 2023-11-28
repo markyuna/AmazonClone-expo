@@ -1,8 +1,8 @@
 import React from 'react';
 import {View, StyleSheet, FlatList} from 'react-native';
-import ProductItem from '../../components/ProductItem';
+import ProductItem from '../components/ProductItem';
 
-import products from '../../data/products';
+import products from '../data/products';
 
 const HomeScreen = ({searchValue}: {searchValue: string}) => {
   console.log(searchValue);
@@ -21,6 +21,7 @@ const HomeScreen = ({searchValue}: {searchValue: string}) => {
 const styles = StyleSheet.create({
   page: {
     padding: 10,
+    // marginVertical: 50,
   },
 });
 

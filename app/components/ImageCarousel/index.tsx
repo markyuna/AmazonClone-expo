@@ -1,29 +1,31 @@
-import React, {useCallback, useState} from 'react';
-import { 
-  View, 
-  Image, 
-  FlatList, 
+import React, {useState, useCallback} from 'react';
+import {
+  View,
+  Image,
+  FlatList,
   StyleSheet,
-  useWindowDimensions 
+  useWindowDimensions,
 } from 'react-native';
 
-const ImageCarousel = ({ images }: {images: [string]}) => {
+const ImageCarousel = ({images}: {images: string[]}) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const windowWidth = useWindowDimensions().width;
 
-  const onFlatListUpdate = useCallback(({viewableItems}) => {
+  const onFlatlistUpdate = useCallback(({viewableItems}) => {
     if (viewableItems.length > 0) {
       setActiveIndex(viewableItems[0].index || 0);
     }
+    console.log(viewableItems);
   }, []);
+
   return (
     <View style={styles.root}>
       <FlatList
         data={images}
         renderItem={({item}) => (
           <Image
-            style={[styles.image, {width: windowWidth - 50}]}
-            source={{uri: item}} 
+            style={[styles.image, {width: windowWidth - 40}]}
+            source={{uri: item}}
           />
         )}
         horizontal
@@ -32,31 +34,30 @@ const ImageCarousel = ({ images }: {images: [string]}) => {
         snapToAlignment={'center'}
         decelerationRate={'fast'}
         viewabilityConfig={{
-          viewAreaCoveragePercentThreshold: 40,
+          viewAreaCoveragePercentThreshold: 50,
         }}
-        onViewableItemsChanged={onFlatListUpdate}
+        onViewableItemsChanged={onFlatlistUpdate}
       />
 
       <View style={styles.dots}>
         {images.map((image, index) => (
           <View
+            key={index}
             style={[
               styles.dot,
               {
                 backgroundColor: index === activeIndex ? '#c9c9c9' : '#ededed',
-              }
-            ]} />
+              },
+            ]}
+          />
         ))}
       </View>
-
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  root: {
-    margin: 10,
-  },
+  root: {},
   image: {
     margin: 10,
     height: 250,
@@ -74,8 +75,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#ededed',
     borderColor: '#c9c9c9',
     margin: 5,
-  }
-})
-
+  },
+});
 
 export default ImageCarousel;

@@ -18,13 +18,14 @@ interface ProductItemProps {
 }
 
 const ProductItem = ({item}: ProductItemProps) => {
-  const navigation = useNavigation();
+  // const navigation = useNavigation();
 
-  const onPress = () => {
-    navigation.dispatch(StackActions.popToTop('ProductDetails', {id: item.id}));
-  };
+  // const onPress = () => {
+  //   navigation.navigate('ProductDetails', {id: item.id});
+  // };
+
   return (
-    <Pressable onPress={onPress} >
+    // <Pressable onPress={onPress} >
       <View style={styles.root}>
         <Image style={styles.image} source={{uri: item.image}} />
         <View style={styles.rightContainer}>
@@ -52,7 +53,7 @@ const ProductItem = ({item}: ProductItemProps) => {
           </Text>
         </View>
       </View>
-    </Pressable>
+    // </Pressable>
   );
 };
 
