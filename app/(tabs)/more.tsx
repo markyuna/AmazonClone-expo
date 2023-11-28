@@ -1,6 +1,6 @@
 import React from 'react';
 import {View} from 'react-native';
-// import { Auth } from 'aws-amplify';
+import { Auth } from 'aws-amplify/auth';
 import Button from '../components/Button';
 
 const MenuScreen = () => {
