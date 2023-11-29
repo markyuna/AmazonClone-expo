@@ -1,11 +1,15 @@
 import React from 'react';
 import {View} from 'react-native';
-import { Auth } from 'aws-amplify/auth';
 import Button from '../components/Button';
 
+import { Auth } from 'aws-amplify';
 const MenuScreen = () => {
-  const onLogout = () => {
-    Auth.signOut();
+  const onLogout = async () => {
+    try {
+      await Auth.signOut();
+    } catch (error) {
+      console.log('Error signing out: ', error);
+    }
   };
 
   return (

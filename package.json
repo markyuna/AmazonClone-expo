@@ -1,6 +1,6 @@
 {
   "name": "amazonclone-expo",
-  "main": "expo-router/entry",
+  "main": "node_modules/expo/AppEntry.js",
   "version": "1.0.0",
   "scripts": {
     "start": "expo start",
@@ -22,6 +22,7 @@
   },
   "dependencies": {
     "@aws-amplify/react-native": "^1.0.5",
+    "@aws-amplify/ui-react": "^6.0.3",
     "@expo/vector-icons": "^13.0.0",
     "@react-native-async-storage/async-storage": "1.18.2",
     "@react-native-picker/picker": "2.4.10",
