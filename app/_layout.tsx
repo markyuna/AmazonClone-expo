@@ -6,6 +6,11 @@ import { useFonts } from 'expo-font';
 import { SplashScreen, Stack, useLocalSearchParams, useRouter } from 'expo-router';
 import HeaderComponent from './components/HeaderComponent';
 
+import { Amplify } from 'aws-amplify';
+import { Authenticator, useAuthenticator, withAuthenticator } from '@aws-amplify/ui-react-native';
+
+import awsExports from '../src/aws-exports';
+Amplify.configure(awsExports);
 
 
 export { ErrorBoundary } from 'expo-router';
@@ -16,7 +21,7 @@ export const unstable_settings = {
 
 
 
-export default function RootLayout() {
+function RootLayout() {
   const [loaded, error] = useFonts({
     SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
     ...FontAwesome.font,
@@ -38,7 +43,7 @@ export default function RootLayout() {
 
   return <RootLayoutNav />;
 }
-
+export default withAuthenticator(RootLayout);
 
 function RootLayoutNav() {
   const [searchValue, setSearchValue] = useState('');
