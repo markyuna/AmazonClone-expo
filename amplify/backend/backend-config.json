@@ -1,0 +1,141 @@
+{
+  "api": {
+    "AmazonCloneexpo": {
+      "dependsOn": [],
+      "output": {
+        "authConfig": {
+          "additionalAuthenticationProviders": [
+            {
+              "authenticationType": "AWS_IAM"
+            }
+          ],
+          "defaultAuthentication": {
+            "apiKeyConfig": {
+              "apiKeyExpirationDays": 30,
+              "description": "api key description"
+            },
+            "authenticationType": "API_KEY"
+          }
+        }
+      },
+      "providerPlugin": "awscloudformation",
+      "service": "AppSync"
+    }
+  },
+  "auth": {
+    "amazoncloneexpob7188b72": {
+      "customAuth": false,
+      "dependsOn": [],
+      "frontendAuthConfig": {
+        "mfaConfiguration": "OFF",
+        "mfaTypes": [
+          "SMS"
+        ],
+        "passwordProtectionSettings": {
+          "passwordPolicyCharacters": [],
+          "passwordPolicyMinLength": 8
+        },
+        "signupAttributes": [
+          "EMAIL"
+        ],
+        "socialProviders": [],
+        "usernameAttributes": [],
+        "verificationMechanisms": [
+          "EMAIL"
+        ]
+      },
+      "providerPlugin": "awscloudformation",
+      "service": "Cognito"
+    }
+  },
+  "parameters": {
+    "AMPLIFY_auth_amazoncloneexpo_allowUnauthenticatedIdentities": {
+      "usedBy": [
+        {
+          "category": "auth",
+          "resourceName": "amazoncloneexpo"
+        }
+      ]
+    },
+    "AMPLIFY_auth_amazoncloneexpo_authRoleArn": {
+      "usedBy": [
+        {
+          "category": "auth",
+          "resourceName": "amazoncloneexpo"
+        }
+      ]
+    },
+    "AMPLIFY_auth_amazoncloneexpo_authRoleName": {
+      "usedBy": [
+        {
+          "category": "auth",
+          "resourceName": "amazoncloneexpo"
+        }
+      ]
+    },
+    "AMPLIFY_auth_amazoncloneexpo_identityPoolId": {
+      "usedBy": [
+        {
+          "category": "auth",
+          "resourceName": "amazoncloneexpo"
+        }
+      ]
+    },
+    "AMPLIFY_auth_amazoncloneexpo_identityPoolName": {
+      "usedBy": [
+        {
+          "category": "auth",
+          "resourceName": "amazoncloneexpo"
+        }
+      ]
+    },
+    "AMPLIFY_auth_amazoncloneexpo_nativeClientId": {
+      "usedBy": [
+        {
+          "category": "auth",
+          "resourceName": "amazoncloneexpo"
+        }
+      ]
+    },
+    "AMPLIFY_auth_amazoncloneexpo_unauthRoleArn": {
+      "usedBy": [
+        {
+          "category": "auth",
+          "resourceName": "amazoncloneexpo"
+        }
+      ]
+    },
+    "AMPLIFY_auth_amazoncloneexpo_unauthRoleName": {
+      "usedBy": [
+        {
+          "category": "auth",
+          "resourceName": "amazoncloneexpo"
+        }
+      ]
+    },
+    "AMPLIFY_auth_amazoncloneexpo_userPoolId": {
+      "usedBy": [
+        {
+          "category": "auth",
+          "resourceName": "amazoncloneexpo"
+        }
+      ]
+    },
+    "AMPLIFY_auth_amazoncloneexpo_userPoolName": {
+      "usedBy": [
+        {
+          "category": "auth",
+          "resourceName": "amazoncloneexpo"
+        }
+      ]
+    },
+    "AMPLIFY_auth_amazoncloneexpo_webClientId": {
+      "usedBy": [
+        {
+          "category": "auth",
+          "resourceName": "amazoncloneexpo"
+        }
+      ]
+    }
+  }
+}
