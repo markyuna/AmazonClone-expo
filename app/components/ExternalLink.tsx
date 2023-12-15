@@ -24,7 +24,7 @@ const ExternalLink = forwardRef(
       );
     }
 
-    return <RouterLink {...rest} onPress={handleClick} ref={ref} />;
+    return <RouterLink {...rest} onPress={handleClick} href={ref} />;
   }
 );
 

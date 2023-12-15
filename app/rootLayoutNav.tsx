@@ -1,7 +1,8 @@
+import React, { useState } from 'react';
 import { View, Text } from 'react-native'
-import React from 'react'
-
-
+import HeaderComponent from './components/HeaderComponent';
+import SignInScreen from './screens/auth/sign-in';
+import { Stack } from 'expo-router';
 
 function RootLayoutNav() {
     const [searchValue, setSearchValue] = useState('');
@@ -19,7 +20,7 @@ function RootLayoutNav() {
             }}>
         
         <Stack.Screen name="(tabs)" options={{ title: 'Home' }} />
-        <Stack.Screen name="screens/AddressScreen/index" options={{ title: 'AddressScreen' }} />
+        <Stack.Screen name="screens/AddressScreen" options={{ title: 'AddressScreen' }} />
      
       </Stack>
     // </SafeAreaView>

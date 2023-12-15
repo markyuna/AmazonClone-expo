@@ -27,7 +27,8 @@
           "unauthRoleArn": "arn:aws:iam::323833978906:role/amplify-nextamplifygen2-M-amplifyAuthunauthenticate-H8t7BeQLUrsa",
           "unauthRoleName": "amplify-nextamplifygen2-M-amplifyAuthunauthenticate-H8t7BeQLUrsa"
         },
-        "amazoncloneexpob7188b72": {}
+        "amazoncloneexpob7188b72": {},
+        "AmazonCloneexpo": {}
       },
       "api": {
         "AmazonCloneexpo": {}

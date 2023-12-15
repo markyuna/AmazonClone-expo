@@ -23,7 +23,7 @@
     }
   },
   "auth": {
-    "amazoncloneexpob7188b72": {
+    "AmazonCloneexpo": {
       "customAuth": false,
       "dependsOn": [],
       "frontendAuthConfig": {
@@ -33,13 +33,15 @@
         ],
         "passwordProtectionSettings": {
           "passwordPolicyCharacters": [],
-          "passwordPolicyMinLength": 8
+          "passwordPolicyMinLength": 6
         },
         "signupAttributes": [
           "EMAIL"
         ],
         "socialProviders": [],
-        "usernameAttributes": [],
+        "usernameAttributes": [
+          "EMAIL"
+        ],
         "verificationMechanisms": [
           "EMAIL"
         ]

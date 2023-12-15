@@ -5,13 +5,14 @@ import {
   FlatList,
   StyleSheet,
   useWindowDimensions,
+  ViewToken,
 } from 'react-native';
 
 const ImageCarousel = ({images}: {images: string[]}) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const windowWidth = useWindowDimensions().width;
 
-  const onFlatlistUpdate = useCallback(({viewableItems}) => {
+  const onFlatlistUpdate = useCallback(({viewableItems}: {viewableItems: ViewToken[]}) => {
     if (viewableItems.length > 0) {
       setActiveIndex(viewableItems[0].index || 0);
     }

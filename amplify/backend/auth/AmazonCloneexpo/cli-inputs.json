@@ -1,8 +1,10 @@
 {
   "version": "1",
   "cognitoConfig": {
-    "resourceNameTruncated": "amazonb7188b72",
-    "userPoolName": "amazoncloneexpob7188b72_userpool_b7188b72",
+    "identityPoolName": "testAuthIdentityPool",
+    "allowUnauthenticatedIdentities": false,
+    "resourceNameTruncated": "amazon4218892c",
+    "userPoolName": "AmazonCloneexpo",
     "autoVerifiedAttributes": [
       "email"
     ],
@@ -15,7 +17,7 @@
     "emailVerificationSubject": "Your verification code",
     "emailVerificationMessage": "Your verification code is {####}",
     "defaultPasswordPolicy": false,
-    "passwordPolicyMinLength": 8,
+    "passwordPolicyMinLength": 6,
     "passwordPolicyCharacters": [],
     "requiredAttributes": [
       "email"
@@ -23,20 +25,23 @@
     "aliasAttributes": [],
     "userpoolClientGenerateSecret": false,
     "userpoolClientRefreshTokenValidity": "365",
-    "userpoolClientWriteAttributes": [
-      "email"
-    ],
-    "userpoolClientReadAttributes": [
-      "email"
-    ],
-    "userpoolClientLambdaRole": "amazonb7188b72_userpoolclient_lambda_role",
+    "userpoolClientWriteAttributes": [],
+    "userpoolClientReadAttributes": [],
+    "userpoolClientLambdaRole": "Amazon4218892c_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": false,
-    "sharedId": "b7188b72",
-    "resourceName": "amazoncloneexpob7188b72",
-    "authSelections": "userPoolOnly",
-    "useDefault": "manual",
-    "userPoolGroupList": [],
+    "sharedId": "4218892c",
+    "resourceName": "AmazonCloneexpo",
+    "authSelections": "identityPoolAndUserPool",
     "serviceName": "Cognito",
+    "usernameAttributes": [
+      "email"
+    ],
+    "useDefault": "manual",
+    "userPoolGroups": false,
+    "userPoolGroupList": [],
+    "adminQueries": false,
+    "thirdPartyAuth": false,
+    "authProviders": [],
     "usernameCaseSensitive": false,
     "useEnabledMfas": true,
     "authRoleArn": {
@@ -53,11 +58,8 @@
     },
     "breakCircularDependency": true,
     "dependsOn": [],
-    "userPoolGroups": false,
-    "adminQueries": false,
     "triggers": {},
     "hostedUI": false,
-    "authProviders": [],
     "parentStack": {
       "Ref": "AWS::StackId"
     },
