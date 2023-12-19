@@ -2,7 +2,8 @@
 
 import React, { useEffect, useState } from 'react';
 import { View, StyleSheet, FlatList, Text } from 'react-native';
-import { Link, useNavigation } from 'expo-router';
+// import { Link, useNavigation } from 'expo-router';
+import { useNavigation } from '@react-navigation/native';
 // import ExternalLink from '../components/ExternalLink';
 import CartProductItem from '../components/CartProductItem';
 import Button from '../components/Button';
@@ -43,7 +44,7 @@ const ShoopingCartScreen = () => {
        
               <Button
                 text="Proceed to checkout"
-                onPress={() => navigation.navigate('screens/AddressScreen/index')}
+                onPress={() => navigation.navigate('screens/AddressScreen')}
                 containerStyles={{
                   backgroundColor: '#f7e300',
                   borderColor: '#c7b702',

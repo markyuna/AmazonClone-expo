@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text } from 'react-native'
 import HeaderComponent from './components/HeaderComponent';
-import SignInScreen from './screens/auth/sign-in';
+import SignInScreen from './auth/sign-in';
 import { Stack } from 'expo-router';
 
 function RootLayoutNav() {

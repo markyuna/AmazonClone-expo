@@ -1,10 +1,11 @@
 // app/(tabs)/_layout.tsx
 import * as React from 'react';
 import Entypo from '@expo/vector-icons/Entypo';
-import { Link, Tabs, useNavigation } from 'expo-router';
+import { Link, Redirect, Tabs, useNavigation } from 'expo-router';
 import { Pressable, useColorScheme } from 'react-native';
-
+import { Auth } from 'aws-amplify';
 import Colors from '../../constants/Colors';
+import { useEffect } from 'react';
 
 /**
  * You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
@@ -16,6 +17,26 @@ function TabBarIcon(props: Readonly<{ name: React.ComponentProps<typeof Entypo>[
 export default function TabLayout() {
   const colorScheme = useColorScheme();
   const navigation = useNavigation();
+  
+  const [isAuthenticated, setAuthenticated] = React.useState(false);
+
+  useEffect(() => {
+    const checkAuth = async () => {
+      try {
+        const user = await Auth.currentAuthenticatedUser();
+        setAuthenticated(true);
+      } catch (error) {
+        setAuthenticated(false);
+      }
+    };
+
+    checkAuth();
+  }, []);
+
+  if (!isAuthenticated) {
+    // Si no está autenticado, redirige a la pantalla de inicio de sesión
+    return <Redirect href="/auth/sign-in" />;
+  }
   
   return (
     <Tabs
